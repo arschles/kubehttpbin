@@ -1,0 +1,7 @@
+name: kubehttpbin
+home: https://github.com/arschles/kubehttpbin
+version: devel
+description: httpbin.org implemented in Go, running on Kubernetes
+maintainers:
+  - name: Aaron Schlesinger
+    email: arschles+kubehttpbin@gmail.com
