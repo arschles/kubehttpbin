@@ -1,5 +1,5 @@
 containerPort: 8080
-dockerTag: devel
 namespace: kubehttpbin
-org: arschles
-pullPolicy: Always
+dockerTag: devel
+dockerOrg: arschles
+dockerPullPolicy: Always
