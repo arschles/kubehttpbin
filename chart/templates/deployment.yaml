@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: kubehttpbin
-  namespace: kubehttpbin
+  namespace: {{.Values.namespace}}
   labels:
     app: kubehttpbin
 spec:
@@ -22,10 +22,10 @@ spec:
     spec:
       containers:
         - name: kubehttpbin
-          image: quay.io/arschles/kubehttpbin:devel
-          imagePullPolicy: Always
+          image: quay.io/{{.Values.dockerOrg}}/kubehttpbin:{{.Values.dockerTag}}
+          imagePullPolicy: {{.Values.dockerPullPolicy}}
           ports:
-            - containerPort: "{{.Values.containerPort}}"
+            - containerPort: {{.Values.containerPort}}
               name: http
           env:
             - name: "PORT"
@@ -33,12 +33,12 @@ spec:
           livenessProbe:
             httpGet:
               path: /get
-              port: "{{.Values.containerPort}}"
+              port: {{.Values.containerPort}}
             initialDelaySeconds: 30
             timeoutSeconds: 1
           readinessProbe:
             httpGet:
               path: /get
-              port: "{{.Values.containerPort}}"
+              port: {{.Values.containerPort}}
             initialDelaySeconds: 30
             timeoutSeconds: 1
