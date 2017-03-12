@@ -24,6 +24,7 @@ func main() {
 
 	hostStr := fmt.Sprintf(":%d", port)
 	log.Printf("kubehttpbin listening on %s", hostStr)
-	http.ListenAndServe(hostStr, router)
-
+	if err := http.ListenAndServe(hostStr, router); err != nil {
+		log.Fatalf("server failed (%s)", err)
+	}
 }
