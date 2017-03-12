@@ -14,6 +14,3 @@ deploy:
   script: _scripts/deploy.sh
   on:
     branch: master
-before_install:
-- openssl aes-256-cbc -K $encrypted_c0e3e78f2289_key -iv $encrypted_c0e3e78f2289_iv
-  -in config.enc -out ./kubeconfig -d
