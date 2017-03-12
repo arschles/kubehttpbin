@@ -1,7 +1,4 @@
 language: generic
-branches:
-  only:
-  - master
 cache:
   directories:
   - vendor
